@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Keyword Suggestion Tool",
+  "version": "1.0",
+  "description": "Shows related keyword suggestions",
+  "permissions": ["webNavigation", "activeTab", "storage"],
+  "host_permissions": ["*://suggestqueries.google.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.google.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
